@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fstitou <fstitou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fahd <fahd@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 02:43:28 by fahd              #+#    #+#             */
-/*   Updated: 2022/04/24 01:52:54 by fstitou          ###   ########.fr       */
+/*   Updated: 2022/04/24 06:09:10 by fahd             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <fcntl.h>
 # include <sys/wait.h>
 # include <sys/types.h>
-
 # define STDIN 0
 # define STDOUT 1
 # define STDERR 2

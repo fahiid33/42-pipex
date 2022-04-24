@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fstitou <fstitou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fahd <fahd@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 22:11:15 by fstitou           #+#    #+#             */
-/*   Updated: 2022/04/24 02:51:18 by fstitou          ###   ########.fr       */
+/*   Updated: 2022/04/24 06:08:25 by fahd             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # define BUFFER_SIZE 5
+
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
