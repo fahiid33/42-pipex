@@ -3,12 +3,14 @@ NAME_BONUS = pipex_bonus
 
 SRC = pipex.c utils.c utils1.c\
 		
-SRC_BONUS = pipex_bonus.c utils.c utils1.c get_next_line.c get_next_line_utils.c
+SRC_BONUS = pipex_bonus.c utils.c utils1.c get_next_line.c get_next_line_utils.c\
+			here_doc.c\
 
 
 OBJ =   pipex.o utils.o utils1.o\
 
 OBJ_BONUS = pipex_bonus.o utils.o utils1.o get_next_line.o get_next_line_utils.o\
+		here_doc.o\
 
 all : $(NAME)
 

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fahd <fahd@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fstitou <fstitou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 08:07:00 by fahd              #+#    #+#             */
-/*   Updated: 2022/04/24 10:35:47 by fahd             ###   ########.fr       */
+/*   Updated: 2022/04/25 02:18:26 by fstitou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include "get_next_line.h"
 
-int	openfile (char *filename, int mode)
+int	openfile(char *filename, int mode)
 {
 	if (mode == INFILE)
 	{
@@ -29,8 +29,6 @@ int	openfile (char *filename, int mode)
 	else
 		return (open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0644));
 }
-
-
 
 char	*get_path(char *cmd, char **env)
 {
@@ -74,7 +72,7 @@ void	redirection(char *command, char **env, int filein)
 	int	fd[2];
 	int	pid;
 
-	if(pipe(fd) == -1)
+	if (pipe(fd) == -1)
 		exit(2);
 	pid = fork();
 	if (pid)
@@ -91,47 +89,16 @@ void	redirection(char *command, char **env, int filein)
 			exit(2);
 		execute(command, env);
 	}
-
-}
-void    here_doc(char *command, char **env, char *lmd)
-{
-	int		fd[2];
-	char	*str;
-	int		pid;
-
-	pipe(fd);
-	pid = fork();
-	if (pid)
-	{
-		close(fd[1]);
-		dup2(fd[0], STDIN);
-		waitpid(pid, NULL, 0);
-	}
-	else 
-	{
-		close(fd[0]);
-		dup2(fd[1], STDOUT);
-		str = get_next_line(0);
-		while (str)
-		{
-			if (ft_strncmp(str, lmd, strlen(lmd)) == 0)
-				exit(EXIT_SUCCESS);
-			write(fd[1], str, strlen(str));
-			free(str);
-			str = get_next_line(0);
-		}
-		execute(command, env);
-	}
 }
 
-int	main (int ac, char **av, char **env)
+int	main(int ac, char **av, char **env)
 {
 	int	filein;
 	int	fileout;
-	int i;
+	int	i;
 
 	i = 2;
-	if (ft_strncmp(av[1], "here_doc", 8)  == 0 && ac == 6)
+	if (ft_strncmp(av[1], "here_doc", 8) == 0 && ac == 6)
 	{
 		fileout = openfile(av[ac - 1], OUTFILE);
 		dup2(fileout, STDOUT);

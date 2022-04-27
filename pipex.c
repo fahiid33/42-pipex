@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fahd <fahd@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: fstitou <fstitou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 02:47:47 by fahd              #+#    #+#             */
-/*   Updated: 2022/04/24 08:18:04 by fahd             ###   ########.fr       */
+/*   Updated: 2022/04/27 02:46:23 by fstitou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	openfile (char *filename, int mode)
+int	openfile(char *filename, int mode)
 {
 	if (mode == INFILE)
 	{
@@ -28,8 +28,6 @@ int	openfile (char *filename, int mode)
 	else
 		return (open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0644));
 }
-
-
 
 char	*get_path(char *cmd, char **env)
 {
@@ -57,12 +55,18 @@ char	*get_path(char *cmd, char **env)
 	return (cmd);
 }
 
-void	execute(char* command, char **env)
+void	execute(char *command, char **env)
 {
 	char	**ac;
 	char	*path;
 
-	ac = ft_split(command, ' ');
+	if (command[0] != '\0')
+		ac = ft_split(command, ' ');
+	else
+	{
+		wrong_cmd(command);
+		exit(127);
+	}
 	path = get_path(ac[0], env);
 	execve(path, ac, env);
 	wrong_cmd(command);
@@ -70,10 +74,10 @@ void	execute(char* command, char **env)
 
 void	redirection(char *command, char **env, int filein)
 {
-	int fd[2];
-	int pid;
+	int	fd[2];
+	int	pid;
 
-	if(pipe(fd) == -1)
+	if (pipe(fd) == -1)
 		exit(2);
 	pid = fork();
 	if (pid)
@@ -90,10 +94,9 @@ void	redirection(char *command, char **env, int filein)
 			exit(2);
 		execute(command, env);
 	}
-
 }
 
-int	main (int ac, char **av, char **env)
+int	main(int ac, char **av, char **env)
 {
 	int	filein;
 	int	fileout;

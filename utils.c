@@ -6,13 +6,13 @@
 /*   By: fstitou <fstitou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 04:10:39 by fahd              #+#    #+#             */
-/*   Updated: 2022/04/24 01:22:18 by fstitou          ###   ########.fr       */
+/*   Updated: 2022/04/25 00:06:25 by fstitou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	ft_strchr (char *str, char c)
+int	ft_strchr(char *str, char c)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	ft_strchr (char *str, char c)
 	return (-1);
 }
 
-char	*str_join (char *s1, char *s2)
+char	*str_join(char *s1, char *s2)
 {
 	char	*copy;
 	int		i;
@@ -43,7 +43,7 @@ char	*str_join (char *s1, char *s2)
 	return (copy);
 }
 
-int	ft_strncmp (char *s1, char *s2, int n)
+int	ft_strncmp(char *s1, char *s2, int n)
 {
 	while (--n > 0 && *s1 && *s2 && *s1 == *s2)
 	{
@@ -53,7 +53,7 @@ int	ft_strncmp (char *s1, char *s2, int n)
 	return (*s2 - *s1);
 }
 
-char	*ft_strndup (char *str, unsigned int n)
+char	*ft_strndup(char *str, unsigned int n)
 {
 	char				*new;
 	unsigned int		i;
@@ -65,6 +65,7 @@ char	*ft_strndup (char *str, unsigned int n)
 	new[n] = 0;
 	return (new);
 }
+
 void	wrong_cmd(char *cmd)
 {
 	write(STDERR, "pipex: ", 7);

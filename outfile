@@ -1,0 +1,17 @@
+Makefile
+g
+get_next_line.c
+get_next_line.h
+get_next_line_utils.c
+here_doc.c
+infile
+outfile
+p
+pipex
+pipex.c
+pipex.dSYM
+pipex.h
+pipex_bonus.c
+pipex_bonus.dSYM
+utils.c
+utils1.c
