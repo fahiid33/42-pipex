@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fstitou <fstitou@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fahd <fahd@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 08:07:00 by fahd              #+#    #+#             */
-/*   Updated: 2022/04/25 02:18:26 by fstitou          ###   ########.fr       */
+/*   Updated: 2022/05/01 13:28:21 by fahd             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,13 @@ void	execute(char *command, char **env)
 	char	**ac;
 	char	*path;
 
-	ac = ft_split(command, ' ');
+	if (command[0] != '\0')
+		ac = ft_split(command, ' ');
+	else
+	{
+		wrong_cmd(command);
+		exit(127);
+	}
 	path = get_path(ac[0], env);
 	execve(path, ac, env);
 	wrong_cmd(command);
