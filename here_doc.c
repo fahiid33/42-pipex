@@ -6,7 +6,7 @@
 /*   By: fstitou <fstitou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 00:04:07 by fstitou           #+#    #+#             */
-/*   Updated: 2022/04/25 02:41:43 by fstitou          ###   ########.fr       */
+/*   Updated: 2022/05/12 19:44:34 by fstitou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	write_to_fd1(char *lmt, int *fd)
 	while (str)
 	{
 		if (ft_strncmp(str, lmt, ft_strlen1(lmt)) == 0)
-			exit(EXIT_SUCCESS);
+			exit(1);
 		write(fd[1], str, ft_strlen1(str));
 		free(str);
 		str = get_next_line(0);
